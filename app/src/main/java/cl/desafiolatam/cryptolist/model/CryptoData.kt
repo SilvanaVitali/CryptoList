@@ -2,16 +2,20 @@ package cl.desafiolatam.cryptolist.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Criptomoneda(
+//class CryptoData(val cryptoList: List<Crypto>)
+//class CryptoData: List<Crypto>
+
+data class CryptoData(
 
 	@field:SerializedName("data")
-	val data: Data,
+	val listCrypto:  List<Crypto>,
 
 	@field:SerializedName("timestamp")
 	val timestamp: Long
 )
 
-data class Data(
+
+data class Crypto(
 
 	@field:SerializedName("symbol")
 	val symbol: String,
