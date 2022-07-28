@@ -1,5 +1,7 @@
 package cl.desafiolatam.cryptolist.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 //class CryptoData(val cryptoList: List<Crypto>)
@@ -14,8 +16,11 @@ data class CryptoData(
 	val timestamp: Long
 )
 
-
+@Entity
 data class Crypto(
+
+	@field:SerializedName("id")
+	@PrimaryKey val id: String,
 
 	@field:SerializedName("symbol")
 	val symbol: String,
@@ -43,9 +48,6 @@ data class Crypto(
 
 	@field:SerializedName("rank")
 	val rank: String,
-
-	@field:SerializedName("id")
-	val id: String,
 
 	@field:SerializedName("maxSupply")
 	val maxSupply: String,

@@ -13,11 +13,11 @@ import android.os.Bundle
     [X] permiso de internet
 [X] Repositorio
 [ ] ROOM
-    [ ] dependencias
-    [ ] Entities
-    [ ] Dao
-    [ ] cliente de base de datos
-    [ ] subclase de application -> agregar al manifest
+    [X] dependencias
+    [X] Entities
+    [X] Dao
+    [X] cliente de base de datos
+    [X] subclase de application -> agregar al manifest
     [ ] Converters
     [ ] Test unitario a conversor de modelo a DB
 [X] ViewBinding
