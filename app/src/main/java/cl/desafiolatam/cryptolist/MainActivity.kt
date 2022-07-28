@@ -11,7 +11,7 @@ import android.os.Bundle
     [X] Interfaz de operaciones
     [X] cliente de retrofit
     [X] permiso de internet
-[ ] Repositorio
+[X] Repositorio
 [ ] ROOM
     [ ] dependencias
     [ ] Entities
@@ -20,18 +20,18 @@ import android.os.Bundle
     [ ] subclase de application -> agregar al manifest
     [ ] Converters
     [ ] Test unitario a conversor de modelo a DB
-[ ] ViewBinding
-    [ ] Habilitar
-    [ ] actualizar fragmento de listado
+[X] ViewBinding
+    [X] Habilitar
+    [X] actualizar fragmento de listado
     [ ] actualizar fragmento de detalle
 [ ] corutinas (dependencias)
-[ ] ViewModel (by viewModels()) -> Implementa el patrón factory
+[X] ViewModel (by viewModels()) -> Implementa el patrón factory
 [ ] Actualizar MainActivity y su layout
 [ ] Fragmento de listado
-    [ ] Crear Fragmento
-    [ ] Layout de item list
-    [ ] Adapter + ViewHolder + ReciclerView
-    [ ] dependencia imágenes
+    [X] Crear Fragmento
+    [X] Layout de item list
+    [X] Adapter + ViewHolder + ReciclerView
+    [X] dependencia imágenes
     [ ] onClickListener al elemento del listado
     [ ] Abrir fragmento de detalle
 [ ] Fragmento de detalle
