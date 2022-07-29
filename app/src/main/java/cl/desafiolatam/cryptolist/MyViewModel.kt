@@ -13,16 +13,14 @@ class MyViewModel: ViewModel() {
 
     private val repository = Repository()
 
-    private val  cryptoList = MutableLiveData<List<Crypto>>()
-
-    fun cryptoList(): LiveData<List<Crypto>> = cryptoList
+    fun cryptoList(): LiveData<List<Crypto>> = repository.cryptoList
 
     init {
         getAllCryptos()
     }
 
     fun getAllCryptos() = viewModelScope.launch {
-        cryptoList.value = repository.getAllCryptos()
+        repository.getAllCryptos()
     }
 
 

@@ -39,7 +39,6 @@ class ListFragment: Fragment() {
 
     private fun registerObserver() {
         viewModel.cryptoList().observe(viewLifecycleOwner) {
-            Log.d(TAG, "registerObserver: ${it[0]}")
             it?.let {
                 adapter.update(it)
             }

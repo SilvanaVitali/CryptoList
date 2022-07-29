@@ -7,10 +7,11 @@ import com.google.gson.annotations.SerializedName
 //class CryptoData(val cryptoList: List<Crypto>)
 //class CryptoData: List<Crypto>
 
+
 data class CryptoData(
 
 	@field:SerializedName("data")
-	val listCrypto:  List<Crypto>,
+	@PrimaryKey val listCrypto:  List<Crypto>,
 
 	@field:SerializedName("timestamp")
 	val timestamp: Long
@@ -26,32 +27,32 @@ data class Crypto(
 	val symbol: String,
 
 	@field:SerializedName("volumeUsd24Hr")
-	val volumeUsd24Hr: String,
+	val volumeUsd24Hr: String?,
 
 	@field:SerializedName("marketCapUsd")
-	val marketCapUsd: String,
+	val marketCapUsd: String?,
 
 	@field:SerializedName("priceUsd")
 	val priceUsd: String,
 
 	@field:SerializedName("vwap24Hr")
-	val vwap24Hr: String,
+	val vwap24Hr: String?,
 
 	@field:SerializedName("changePercent24Hr")
 	val changePercent24Hr: String,
 
 	@field:SerializedName("name")
-	val name: String,
+	val name: String?,
 
 	@field:SerializedName("explorer")
-	val explorer: String,
+	val explorer: String?,
 
 	@field:SerializedName("rank")
-	val rank: String,
+	val rank: String?,
 
 	@field:SerializedName("maxSupply")
-	val maxSupply: String,
+	val maxSupply: String?,
 
 	@field:SerializedName("supply")
-	val supply: String
+	val supply: String?
 )
