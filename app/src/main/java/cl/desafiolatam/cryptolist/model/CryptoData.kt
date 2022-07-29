@@ -1,8 +1,10 @@
 package cl.desafiolatam.cryptolist.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 //class CryptoData(val cryptoList: List<Crypto>)
 //class CryptoData: List<Crypto>
@@ -17,6 +19,7 @@ data class CryptoData(
 	val timestamp: Long
 )
 
+@Parcelize
 @Entity
 data class Crypto(
 
@@ -55,4 +58,4 @@ data class Crypto(
 
 	@field:SerializedName("supply")
 	val supply: String?
-)
+) : Parcelable

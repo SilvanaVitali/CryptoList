@@ -2,6 +2,7 @@ package cl.desafiolatam.cryptolist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import cl.desafiolatam.cryptolist.databinding.ActivityMainBinding
 
 /*
 [X] Creación del proyecto e inicialización de control de versiones
@@ -35,13 +36,18 @@ import android.os.Bundle
     [ ] onClickListener al elemento del listado
     [ ] Abrir fragmento de detalle
 [ ] Fragmento de detalle
-    [ ] Crear Fragmento y layout
+    [X] Crear Fragmento y layout
     [ ] Utilizar ViewModel para pedir información de detalle
 [ ] Nombre de usuario utilizando SharedPreferences
  */
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }

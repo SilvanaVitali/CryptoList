@@ -1,8 +1,8 @@
 package cl.desafiolatam.cryptolist.view
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import cl.desafiolatam.cryptolist.databinding.ItemCryptoBinding
 import cl.desafiolatam.cryptolist.model.Crypto
@@ -37,6 +37,15 @@ class CryptoVH(val binding: ItemCryptoBinding): RecyclerView.ViewHolder(binding.
         binding.tvNombreCrypto.text = crypto.symbol
         binding.tvValorCrypto.text = String.format("USD$ ${num(crypto.priceUsd)}")
         Picasso.get().load(getImage(crypto.symbol)).into(binding.ivCrypto)
+
+//        binding.root.setOnClickListener{
+//
+//        }
+        this.itemView.setOnClickListener {
+
+           val action = ListFragmentDirections.actionListFragmentToDetailFragment(crypto)
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
     fun num(priceUsd: String): String{

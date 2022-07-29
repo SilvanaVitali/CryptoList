@@ -1,7 +1,7 @@
 package cl.desafiolatam.cryptolist.view
 
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,14 +10,15 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import cl.desafiolatam.cryptolist.MyViewModel
 import cl.desafiolatam.cryptolist.databinding.FragmentListBinding
+import cl.desafiolatam.cryptolist.model.Crypto
 
 class ListFragment: Fragment() {
 
     private val TAG = "ListFragment"
     private lateinit var binding: FragmentListBinding
     private val viewModel by viewModels<MyViewModel>()
-
     private lateinit var adapter: CryptoAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,6 +29,8 @@ class ListFragment: Fragment() {
 
         initView()
         registerObserver()
+
+
         return binding.root
     }
 
@@ -44,4 +47,15 @@ class ListFragment: Fragment() {
             }
         }
     }
+
+//companion object {
+//
+//
+//    interface OnCryptoSelectedListener {
+//        fun onCryptoSelected(crypto: Crypto)
+//    }
+//}
+
+
+
 }
