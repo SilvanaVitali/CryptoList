@@ -7,7 +7,9 @@ import androidx.lifecycle.viewModelScope
 import cl.desafiolatam.cryptolist.model.Crypto
 import cl.desafiolatam.cryptolist.model.CryptoData
 import cl.desafiolatam.cryptolist.model.Repository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MyViewModel: ViewModel() {
 
@@ -21,7 +23,9 @@ class MyViewModel: ViewModel() {
     }
 
     fun getAllCryptos() = viewModelScope.launch {
-        repository.getAllCryptos()
+        withContext(Dispatchers.IO) {
+            repository.getAllCryptos()
+        }
     }
 
 
