@@ -14,8 +14,6 @@ interface CryptoAPI {
     @GET("assets")
     suspend fun getAllCryptos(): Response<CryptoData>
 
-//    @GET("assets/{id}")
-//    suspend fun getCrypto(@Path("id") id: String): Response<Crypto>
 }
 
 

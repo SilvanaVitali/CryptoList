@@ -16,8 +16,8 @@ class Repository {
         when(response.isSuccessful){
             true -> {
                 if (response.body() != null) {
-                    cryptoDao.insert(response.body()!!.listCrypto)
-
+                    cryptoDao.insert(response.body()!!.listCrypto.map {
+                        it.copy(timestamp = response.body()!!.timestamp) })
                 } else {
                     Log.d(TAG, "getAllCryptos: body is null")
                 }

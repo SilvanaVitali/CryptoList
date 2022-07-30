@@ -15,6 +15,7 @@ class MyViewModel: ViewModel() {
 
     fun cryptoList(): LiveData<List<Crypto>> = repository.cryptoList
 
+
     init {
         getAllCryptos()
     }

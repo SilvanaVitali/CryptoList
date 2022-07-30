@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import cl.desafiolatam.cryptolist.databinding.FragmentDetailBinding
 import cl.desafiolatam.cryptolist.model.Crypto
+import cl.desafiolatam.cryptolist.view.CryptoVH.Companion.convertLongToTime
+import cl.desafiolatam.cryptolist.view.CryptoVH.Companion.getImage
 import com.squareup.picasso.Picasso
 
 class DetailFragment : Fragment() {
 
-    //private var crypto : Crypto? = null
     private lateinit var binding: FragmentDetailBinding
     private lateinit var crypto: Crypto
 
@@ -34,17 +35,13 @@ class DetailFragment : Fragment() {
         with(binding){
             tvSymbol.text = crypto.symbol
             tvName.text = crypto.name
-            tvPrice.text = crypto.priceUsd
-            tvSupply.text = crypto.supply
-            tvMarketcap.text = crypto.marketCapUsd
-            Picasso.get().load("https://static.coincap.io/assets/icons/${crypto.symbol.toLowerCase()}@2x.png")
+            tvTimestamp.text = convertLongToTime(crypto.timestamp)
+            tvPrice.text = String.format("USD$ ${CryptoVH.num(crypto.priceUsd)}")
+            tvSupply.text = String.format("Supply \t ${crypto.supply}")
+            tvMarketcap.text = String.format("Marketcap \t ${crypto.marketCapUsd}")
+            Picasso.get().load(getImage(crypto.symbol))
                 .into(ivSymbol)
         }
     }
 }
 
-/*
-
-                                    android:id="@+id/tvTimestamp"
-                                    android:id="@+id/ivSymbol"
- */

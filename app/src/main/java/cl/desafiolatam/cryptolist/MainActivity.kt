@@ -1,5 +1,6 @@
 package cl.desafiolatam.cryptolist
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import cl.desafiolatam.cryptolist.databinding.ActivityMainBinding
@@ -49,5 +50,6 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
 }

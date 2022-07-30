@@ -6,10 +6,6 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
-//class CryptoData(val cryptoList: List<Crypto>)
-//class CryptoData: List<Crypto>
-
-
 data class CryptoData(
 
 	@field:SerializedName("data")
@@ -57,5 +53,9 @@ data class Crypto(
 	val maxSupply: String?,
 
 	@field:SerializedName("supply")
-	val supply: String?
+	val supply: String?,
+
+	@field:SerializedName("timestamp")
+	val timestamp: Long
+
 ) : Parcelable

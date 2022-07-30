@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import cl.desafiolatam.cryptolist.databinding.ItemCryptoBinding
 import cl.desafiolatam.cryptolist.model.Crypto
 import com.squareup.picasso.Picasso
+import java.sql.Date
+import java.text.SimpleDateFormat
 
 
 class CryptoAdapter: RecyclerView.Adapter<CryptoVH>() {
@@ -38,9 +40,6 @@ class CryptoVH(val binding: ItemCryptoBinding): RecyclerView.ViewHolder(binding.
         binding.tvValorCrypto.text = String.format("USD$ ${num(crypto.priceUsd)}")
         Picasso.get().load(getImage(crypto.symbol)).into(binding.ivCrypto)
 
-//        binding.root.setOnClickListener{
-//
-//        }
         this.itemView.setOnClickListener {
 
            val action = ListFragmentDirections.actionListFragmentToDetailFragment(crypto)
@@ -48,11 +47,22 @@ class CryptoVH(val binding: ItemCryptoBinding): RecyclerView.ViewHolder(binding.
         }
     }
 
-    fun num(priceUsd: String): String{
-        var price = priceUsd.toFloat()
-        var formatPrice = String.format("%.6f", price)
-        return formatPrice
+    companion object{
+        fun num(priceUsd: String): String{
+            var price = priceUsd.toFloat()
+            var formatPrice = String.format("%.6f", price)
+            return formatPrice
+        }
+
+        fun getImage(symbol: String) = "https://static.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png"
+
+        fun convertLongToTime (time: Long): String {
+            val date = Date(time)
+            val format = SimpleDateFormat("yyyy.MM.dd HH:mm")
+            return  format.format(date)
+        }
     }
-    fun getImage(symbol: String) = "https://static.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png"
+
 
 }
+
