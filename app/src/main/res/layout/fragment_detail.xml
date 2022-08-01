@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#131D29"
     tools:context=".view.DetailFragment">
 
     <LinearLayout
@@ -15,33 +16,46 @@
             android:id="@+id/cvCrypto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="10dp"
+            app:cardBackgroundColor="#253A51"
             app:cardCornerRadius="7dp"
-            app:cardBackgroundColor="#24877D">
+            app:cardElevation="10dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp">
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/tvTimestamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="14:52:29"
+                    android:textColor="#B8BED8"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
+
                     android:id="@+id/ivSymbol"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginTop="30dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/btc" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvTimestamp"
+                    android:layout_marginTop="10dp"
+                    app:srcCompat="@drawable/bitcoin" />
 
                 <TextView
                     android:id="@+id/tvSymbol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:textSize="36sp"
+                    android:layout_marginTop="10dp"
                     android:text="BAT"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#B8BED8"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ivSymbol" />
@@ -50,55 +64,109 @@
                     android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
                     android:text="Basic Attention Token"
+                    android:textColor="#B8BED8"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvSymbol" />
 
-                <TextView
-                    android:id="@+id/tvTimestamp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:textSize="20sp"
-                    android:text="14:52:29.77"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvName" />
 
                 <TextView
                     android:id="@+id/tvPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
+                    android:layout_marginTop="25dp"
                     android:text="USD$ 0.689887"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tvTimestamp" />
+                    android:textColor="#B8BED8"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+                <TextView
+                    android:id="@+id/percent24hr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-3.1316%"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/teal_200"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="15dp">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
 
-            <TextView
-                android:id="@+id/tvSupply"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:text="Supply 1489288105.6224163000000000" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvMarketcap"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:text="Market Cap 1027440550.3426229135240554" />
-        </LinearLayout>
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintDetalle"
+                            android:layout_width="match_parent"
+                            android:layout_height="370dp"
+                            android:background="@drawable/disminucion"
+                            android:padding="20dp">
+
+                            <TextView
+                                android:id="@+id/tvVolume"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="VolumeUsd24Hr: 16440339661.958230"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                                android:textColor="#B8BED8"
+                                android:textSize="20sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/tvSupply"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="Supply: 1489288105.622416"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                                android:textColor="#B8BED8"
+                                android:textSize="20sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tvVolume" />
+
+                            <TextView
+                                android:id="@+id/tvMarketcap"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="Market Cap: 1027440550.342622"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                                android:textColor="#B8BED8"
+                                android:textSize="20sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tvSupply" />
+
+                            <TextView
+                                android:id="@+id/tvExplorer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="https://blockchain.info/"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="#B8BED8"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+                </ScrollView>
+
+
+
+
     </LinearLayout>
 
 </FrameLayout>

@@ -33,12 +33,17 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding){
+            tvTimestamp.text = convertLongToTime(crypto.timestamp)
             tvSymbol.text = crypto.symbol
             tvName.text = crypto.name
-            tvTimestamp.text = convertLongToTime(crypto.timestamp)
             tvPrice.text = String.format("USD$ ${CryptoVH.num(crypto.priceUsd)}")
-            tvSupply.text = String.format("Supply \t ${crypto.supply}")
-            tvMarketcap.text = String.format("Marketcap \t ${crypto.marketCapUsd}")
+            percent24hr.text = "${CryptoVH.num(crypto.changePercent24Hr)}%"
+            percent24hr.setTextColor(CryptoVH.textColor(crypto.changePercent24Hr))
+            tvVolume.text = String.format("VolumeUsd24Hr \n ${crypto.volumeUsd24Hr}")
+            tvSupply.text = String.format("Supply \n ${crypto.supply}")
+            tvMarketcap.text = String.format("Marketcap \n ${crypto.marketCapUsd}")
+            tvExplorer.text = crypto.explorer
+            constraintDetalle.setBackgroundResource(CryptoVH.background(crypto.changePercent24Hr))
             Picasso.get().load(getImage(crypto.symbol))
                 .into(ivSymbol)
         }

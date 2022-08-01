@@ -1,9 +1,11 @@
 package cl.desafiolatam.cryptolist.view
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import cl.desafiolatam.cryptolist.R
 import cl.desafiolatam.cryptolist.databinding.ItemCryptoBinding
 import cl.desafiolatam.cryptolist.model.Crypto
 import com.squareup.picasso.Picasso
@@ -38,6 +40,8 @@ class CryptoVH(val binding: ItemCryptoBinding): RecyclerView.ViewHolder(binding.
     fun bind(crypto: Crypto){
         binding.tvNombreCrypto.text = crypto.symbol
         binding.tvValorCrypto.text = String.format("USD$ ${num(crypto.priceUsd)}")
+        binding.tvChangePer.text = "${num(crypto.changePercent24Hr)}%"
+        binding.tvChangePer.setTextColor(textColor(crypto.changePercent24Hr))
         Picasso.get().load(getImage(crypto.symbol)).into(binding.ivCrypto)
 
         this.itemView.setOnClickListener {
@@ -60,6 +64,22 @@ class CryptoVH(val binding: ItemCryptoBinding): RecyclerView.ViewHolder(binding.
             val date = Date(time)
             val format = SimpleDateFormat("yyyy.MM.dd HH:mm")
             return  format.format(date)
+        }
+
+        fun textColor(changePercent24Hr: String): Int {
+            var color: Int = Color.GREEN
+            if (changePercent24Hr.contains("-")){
+                color = Color.argb(255,250,62,15)
+            }
+            return color
+        }
+
+        fun background(changePercent24Hr: String): Int {
+            var fondo: Int = R.drawable.aumento
+            if (changePercent24Hr.contains("-")){
+                fondo = R.drawable.disminucion
+            }
+            return fondo
         }
     }
 
