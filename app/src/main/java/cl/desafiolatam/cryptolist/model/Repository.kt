@@ -1,8 +1,10 @@
 package cl.desafiolatam.cryptolist.model
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import cl.desafiolatam.cryptolist.model.local.CryptoApplication
 import cl.desafiolatam.cryptolist.model.remote.RetrofitClient
+import kotlinx.coroutines.flow.Flow
 
 class Repository {
 
@@ -26,6 +28,10 @@ class Repository {
                 Log.d(TAG, "getAllCryptos: error de code ${response.code()}")
             }
         }
+    }
+
+    fun searchDatabase(searchQuery: String): Flow<List<Crypto>> {
+        return cryptoDao.searchDatabase(searchQuery)
     }
 
 

@@ -1,11 +1,7 @@
 package cl.desafiolatam.cryptolist
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import cl.desafiolatam.cryptolist.model.Crypto
-import cl.desafiolatam.cryptolist.model.CryptoData
 import cl.desafiolatam.cryptolist.model.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,6 +24,9 @@ class MyViewModel: ViewModel() {
         }
     }
 
+    fun searchDatabase(searchQuery: String): LiveData<List<Crypto>> {
+        return repository.searchDatabase(searchQuery).asLiveData()
+    }
 
 
 

@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
@@ -16,21 +17,19 @@ import cl.desafiolatam.cryptolist.MyViewModel
 import cl.desafiolatam.cryptolist.databinding.FragmentListBinding
 import com.google.android.material.textfield.TextInputEditText
 
-class ListFragment: Fragment() {
+class ListFragment: Fragment(), SearchView.OnQueryTextListener {
 
     private val TAG = "ListFragment"
     private lateinit var binding: FragmentListBinding
     private val viewModel by viewModels<MyViewModel>()
     private lateinit var adapter: CryptoAdapter
     private lateinit var sharedPreferences: SharedPreferences
-
     private lateinit var textInput: TextInputEditText
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         val fileNameSP = "cl.desafiolatam.cryptolist"
         sharedPreferences = context.getSharedPreferences(fileNameSP, Context.MODE_PRIVATE)
-
     }
 
     override fun onCreateView(
@@ -70,6 +69,10 @@ class ListFragment: Fragment() {
             }
 
         })
+
+        binding.svSearch.isSubmitButtonEnabled = false
+        binding.svSearch.setOnQueryTextListener(this)
+
     }
 
     private fun registerObserver() {
@@ -80,6 +83,26 @@ class ListFragment: Fragment() {
         }
     }
 
+    override fun onQueryTextSubmit(query: String?): Boolean {
+    return true
+    }
+
+    override fun onQueryTextChange(query: String?): Boolean {
+        if (query != null) {
+            searchDatabase(query)
+        }
+        return true
+    }
+
+    private fun searchDatabase(query: String) {
+        val searchQuery = "%$query%"
+
+        viewModel.searchDatabase(searchQuery).observe(this) { list ->
+            list.let {
+                adapter.update(it)
+            }
+        }
+    }
 
 
 }

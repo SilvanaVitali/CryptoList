@@ -72,4 +72,6 @@ dependencies {
     // nav fragment component
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
 
+    //asLiveData()
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0"
 }
