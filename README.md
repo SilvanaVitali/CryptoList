@@ -5,7 +5,7 @@ Al hacer un clic sobre uno de los elementos, se obtenga información detallada, 
 capitalización del mercado, que está directamente asociado a la capitalización de mercado.
 
 Características: 
-● Lenguaje Kotlin. \n
+● Lenguaje Kotlin. 
 ● LiveData & UI con patrón MVVM.
 ● Retrofit para consumo de API REST y acceso a recursos remotos.
 ● Patrón de diseño Repository para manejar las fuentes de datos.
